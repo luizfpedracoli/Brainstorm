@@ -34,3 +34,11 @@ const perguntas = [
         ]
     },
 ];
+
+{
+  enunciado: "Pergunta 5",
+  alternativas: [
+    "Alternativa 1",
+    "Alternativa 2"
+  ]
+};
