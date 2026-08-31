@@ -77,4 +77,4 @@ function mostraResultado() {
     textoResultado.textContent = "Obrigado por responder sobre o uso da tecnologia na escola!";
 }
 
-mostraPergunta()
+mostraPergunta();
