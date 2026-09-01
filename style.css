@@ -1,84 +1,175 @@
+or: #09090e;
+    text-align: center;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #1b1b2f;
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: #09090e;
+    background-image:
+        linear-gradient(rgba(0, 242, 254, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 242, 254, 0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
     color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    margin: 0;
+    padding: 20px;
+    overflow-x: hidden;
 }
 
+/* Animação do card principal */
 .caixa-principal {
-    background-color: #1f4068;
-    padding: 2rem;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 600px;
+    background: #12111d;
+    border: 3px solid #00f2fe;
+    border-radius: 14px;
+    padding: 2.5rem 2rem;
+    width: 100%;
+    max-width: 580px;
+    box-shadow: 8px 8px 0px #4facfe;
+    transition: transform 0.3s ease;
+}
+
+.animar-entrada {
+    animation: slideDown 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
     text-align: center;
-    max-height: 85vh;
-    overflow-y: auto;
-    padding-right: 12px;
-}
-
-/* Estilo da Barra de Rolagem */
-.caixa-principal::-webkit-scrollbar {
-    width: 8px;
-}
-
-.caixa-principal::-webkit-scrollbar-track {
-    background: #162447;
-    border-radius: 10px;
-}
-
-.caixa-principal::-webkit-scrollbar-thumb {
-    background: #e43f5a;
-    border-radius: 10px;
-}
-
-.caixa-principal::-webkit-scrollbar-thumb:hover {
-    background: #b71c1c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #00f2fe;
+    margin-bottom: 2rem;
+    animation: glowPulse 2s infinite alternate;
 }
 
 .caixa-perguntas {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-    font-weight: bold;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #ffffff;
+    margin-bottom: 1.8rem;
+    padding: 14px;
+    background-color: #1a1829;
+    border-left: 5px solid #ff0844;
+    border-radius: 6px;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.caixa-alternativas {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
 }
 
 .caixa-alternativas button {
-    display: block;
     width: 100%;
-    padding: 12px;
-    margin: 8px 0;
-    background-color: #e43f5a;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
+    padding: 16px;
+    background-color: #1a1829;
+    border: 2px solid #ff0844;
+    border-radius: 8px;
+    color: #ffffff;
     font-size: 1rem;
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    font-weight: 700;
+    font-family: inherit;
+    text-align: left;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px #ff0844;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: popUp 0.3s ease-out;
 }
 
 .caixa-alternativas button:hover {
-    background-color: #162447;
-    transform: translateY(-2px);
+    background-color: #ff0844;
+    color: #ffffff;
+    transform: translate(-4px, -4px) scale(1.01);
+    box-shadow: 8px 8px 0px #00f2fe;
 }
 
-/* Cores para Acerto e Erro */
-.caixa-alternativas button.correta {
-    background-color: #2e7d32;
+.caixa-alternativas button:active {
+    transform: translate(2px, 2px) scale(0.98);
+    box-shadow: 2px 2px 0px #00f2fe;
 }
 
-.caixa-alternativas button.incorreta {
-    background-color: #e53935;
+/* Tela de resultado */
+.caixa-resultado {
+    display: none;
+    margin-top: 1.5rem;
+    padding: 20px;
+    background-color: #00f2fe;
+    border: 3px solid #ffffff;
+    border-radius: 12px;
+    box-shadow: 6px 6px 0px #ff0844;
+    animation: bounceIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Animações de Entrada */
-@keyframes aparecer {
+.texto-resultado {
+    font-size: 1.15rem;
+    font-weight: 700;
+    col
+.btn-refazer {
+    display: block;
+    width: 100%;
+    padding: 14px 20px;
+    background-color: #09090e;
+    color: #00f2fe;
+    border: 2px solid #09090e;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: inherit;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px #ffffff;
+    transition: all 0.2s ease;
+}
+
+.btn-refazer:hover {
+    background-color: #ffffff;
+    color: #09090e;
+    border-color: #ffffff;
+    transform: translate(-3px, -3px);
+    box-shadow: 7px 7px 0px #ff0844;
+}
+
+.btn-refazer:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #ff0844;
+}
+
+/* Crédito no final */
+.creditos {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #09090e;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.creditos span {
+    color: #ff0844;
+    background: #09090e;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* Keyframes de Animação */
+@keyframes slideDown {
     from {
         opacity: 0;
-        transform: translateY(15px);
+        transform: translateY(-40px);
     }
     to {
         opacity: 1;
@@ -86,29 +177,42 @@ body {
     }
 }
 
-.animar {
-    animation: aparecer 0.4s ease-out;
-}
-.caixa-perguntas {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-    font-weight: bold;
-    max-height: 90px;  /* Limita a altura para acionar a barra */
-    overflow-y: auto;  /* Ativa a rolagem */
-    padding-right: 8px;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
-/* Barra de rolagem específica da pergunta */
-.caixa-perguntas::-webkit-scrollbar {
-    width: 6px;
+@keyframes popUp {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
-.caixa-perguntas::-webkit-scrollbar-track {
-    background: #162447;
-    border-radius: 10px;
+@keyframes bounceIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
-.caixa-perguntas::-webkit-scrollbar-thumb {
-    background: #e43f5a;
-    border-radius: 10px;
+@keyframes glowPulse {
+    from {
+        text-shadow: 0 0 2px #00f2fe;
+    }
+    to {
+        text-shadow: 0 0 10px #00f2fe, 0 0 20px #00f2fe;
+    }
 }
