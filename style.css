@@ -1,8 +1,6 @@
-or: #09090e;
-    text-align: center;
-    margin-bottom: 15px;
-    line-height: 1.5;
-}
+
+
+
 * {
     margin: 0;
     padding: 0;
@@ -112,9 +110,9 @@ h1 {
     animation: bounceIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.texto-resultado {
-    font-size: 1.15rem;
-    font-weight: 700;
+.texto-resultado 
+    
+    
     col
 .btn-refazer {
     display: block;
