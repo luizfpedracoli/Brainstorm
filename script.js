@@ -77,4 +77,22 @@ function respostaSelecionada() {
     mostraPergunta();
 }
 
-function mostraRe
+function mostraResultado() {
+    caixaPerguntas.textContent = "Fim do Questionário!";
+    caixaAlternativas.textContent = "";
+    textoResultado.textContent = "Obrigado por responder sobre o uso da tecnologia na escola!";
+    caixaResultado.style.display = "block";
+}
+
+function reiniciarQuestionario() {
+    atual = 0;
+    caixaResultado.style.display = "none";
+    mostraPergunta();
+}
+
+if (btnRefazer) {
+    btnRefazer.addEventListener("click", reiniciarQuestionario);
+}
+
+caixaResultado.style.display = "none";
+mostraPergunta();
