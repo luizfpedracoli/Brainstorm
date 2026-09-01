@@ -3,6 +3,7 @@ const caixaPerguntas = document.querySelector(".caixa-perguntas");
 const caixaAlternativas = document.querySelector(".caixa-alternativas");
 const caixaResultado = document.querySelector(".caixa-resultado");
 const textoResultado = document.querySelector(".texto-resultado");
+const btnRefazer = document.querySelector(".btn-refazer");
 
 const perguntas = [
     {
@@ -51,7 +52,13 @@ function mostraPergunta() {
         return;
     }
     perguntaAtual = perguntas[atual];
+   
+    // Reinicia animação da pergunta
+    caixaPerguntas.style.animation = 'none';
+    caixaPerguntas.offsetHeight; // Triggers reflow
+    caixaPerguntas.style.animation = 'fadeIn 0.4s ease-out';
     caixaPerguntas.textContent = perguntaAtual.enunciado;
+   
     caixaAlternativas.textContent = "";
     mostraAlternativas();
 }
@@ -60,7 +67,6 @@ function mostraAlternativas() {
     for (const alternativa of perguntaAtual.alternativas) {
         const botaoAlternativas = document.createElement("button");
         botaoAlternativas.textContent = alternativa;
-        // Adiciona o evento de clique para avançar
         botaoAlternativas.addEventListener("click", () => respostaSelecionada());
         caixaAlternativas.appendChild(botaoAlternativas);
     }
@@ -71,10 +77,4 @@ function respostaSelecionada() {
     mostraPergunta();
 }
 
-function mostraResultado() {
-    caixaPerguntas.textContent = "Fim do Questionário!";
-    caixaAlternativas.textContent = "";
-    textoResultado.textContent = "Obrigado por responder sobre o uso da tecnologia na escola!";
-}
-
-mostraPergunta();
+function mostraRe
